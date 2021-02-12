@@ -1,7 +1,7 @@
 # easyvote
 
 ## Project setup
-```
+```3
 npm install
 ```
 
