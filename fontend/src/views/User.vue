@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.user {}
+.user {
+    text-align: center;
+}
 </style>

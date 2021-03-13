@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.register {}
+.register {
+    text-align: center;
+}
 </style>

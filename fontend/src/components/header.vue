@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style scoped>
-.header {}
+.header {
+    text-align: center;
+}
 </style>

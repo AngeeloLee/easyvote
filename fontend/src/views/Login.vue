@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.login {}
+.login {
+    text-align: center;
+}
 </style>

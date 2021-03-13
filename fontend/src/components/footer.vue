@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style scoped>
-.footer {}
+.footer {
+    text-align: center;
+}
 </style>

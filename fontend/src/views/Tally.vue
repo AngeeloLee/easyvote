@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.tally {}
+.tally {
+    text-align: center;
+}
 </style>

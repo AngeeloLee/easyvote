@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.proposal {}
+.proposal {
+    text-align: center;
+}
 </style>

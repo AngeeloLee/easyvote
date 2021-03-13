@@ -44,6 +44,11 @@ const routes = [
     path: '/vote/:vid',
     name: 'Vote',
     component: () => import('../views/Vote.vue')
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('../views/404.vue')
   }
 ]
 
@@ -51,5 +56,13 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+// routes.beforeEach((to, from, next) => {
+//   if (to.matched.length !== 0) {
+//     next()
+//   } else {
+//     next({ path: '/404' })
+//   }
+// })
 
 export default router

@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.vote {}
+.vote {
+    text-align: center;
+}
 </style>
