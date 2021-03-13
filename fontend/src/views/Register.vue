@@ -1,5 +1,7 @@
 <template>
-    <div class="register"></div>
+    <div class="register">
+        <h1>Register</h1>
+    </div>
 </template>
 
 <script>

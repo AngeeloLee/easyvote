@@ -1,5 +1,7 @@
 <template>
-    <div class="verify"></div>
+    <div class="verify">
+        <h1>Verify</h1>
+    </div>
 </template>
 
 <script>

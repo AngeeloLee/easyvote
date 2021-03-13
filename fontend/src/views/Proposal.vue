@@ -1,5 +1,7 @@
 <template>
-    <div class="proposal"></div>
+    <div class="proposal">
+        <h1>Proposal</h1>
+    </div>
 </template>
 
 <script>

@@ -1,5 +1,7 @@
 <template>
-    <div class="tallying"></div>
+    <div class="tally">
+        <h1>Tally</h1>
+    </div>
 </template>
 
 <script>
@@ -9,5 +11,5 @@ export default {
 </script>
 
 <style scoped>
-.tallying {}
+.tally {}
 </style>

@@ -1,5 +1,7 @@
 <template>
-    <div class="vooting"></div>
+    <div class="vote">
+        <h1>Vote</h1>
+    </div>
 </template>
 
 <script>
@@ -9,5 +11,5 @@ export default {
 </script>
 
 <style scoped>
-.voting {}
+.vote {}
 </style>
