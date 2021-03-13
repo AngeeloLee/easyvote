@@ -9,6 +9,7 @@ contract BaseVote {
         uint ballot;        // 得票
         bytes32 describe;   // 简单描述
     }
+
     /// @notice 投票人 结构体
     struct Voter {
         uint weight;        // 投票权重
@@ -30,17 +31,20 @@ contract BaseVote {
             _;
         }
     }
+
     /// @notice 只允许发起人操作 修饰器
     modifier proposerOnly() {
         require(msg.sender == proposer, "Only chairperson can give right to vote.");
         _;
     }
+
     /// @notice 还未投票 修饰器
     /// @param voter address 投票人地址
     modifier didnotVote(address voter) {
         require(!voters[voter].voted, "The voter already voted.");
         _;
     }
+
     /// @notice 具有投票权限 修饰器
     /// @param voter address 投票人地址
     modifier votable(address voter) {
@@ -51,6 +55,7 @@ contract BaseVote {
             }
         }
     }
+
     /// @notice 候选人存在 修饰器
     /// @param cand bytes16 候选人key
     modifier existCandidate(bytes16 cand) {
@@ -77,12 +82,14 @@ contract BaseVote {
             });
         }
     }
+
     /// @notice 授权投票
     /// @param voter address 待授权的投票人
     function giveRightToVote(address voter) public inPeriod proposerOnly didnotVote(voter) {
         require(voters[voter].weight == 0);
         voters[voter].weight = 1;
     }
+
     /// @notice 投票
     /// @param cand bytes16 所支持的候选人
     function vote(bytes16 cand) public inPeriod existCandidate(cand) didnotVote(msg.sender) votable(msg.sender) {
@@ -91,11 +98,13 @@ contract BaseVote {
         voter.proposal = cand;
         candidates[cand].ballot += voter.weight;
     }
+
     /// @notice 获取所有候选人的key
     /// @return keys bytes16[] 候选人key数组
     function getCandidateKeys() public view returns(bytes16[] memory keys) {
         return candidateKeys;
     }
+    
     /// @notice 获取单个候选人信息
     /// @param key bytes16 候选人key
     /// @return name bytes32 候选人简称
