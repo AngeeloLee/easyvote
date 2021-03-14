@@ -18,6 +18,12 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  // MonfoDB
+  config.mongoose = {
+    url: process.env.EGG_MONGODB_URL || 'mongodb://localhost/easyvote',
+    options: {},
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

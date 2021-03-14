@@ -13,5 +13,6 @@ export default {
 <style scoped>
 .login {
     text-align: center;
+    background-color: aquamarine;
 }
 </style>
