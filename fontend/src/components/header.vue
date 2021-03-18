@@ -12,22 +12,41 @@
             </a>
         </span>
         <span class="nav">
-            <a class="link" href="/login">LOGIN</a>
-            <a class="link" href="/about">ABOUT</a>
-            <a class="link" href="/vote">VOTE</a>
-            <a class="link" href="/proposal">提案</a>
+            <a-button size="small" @click="switchLang" ghost>{{$t('menu.switchLang')}}</a-button>
+            <a class="link" href="/login">{{$t('menu.login')}}</a>
+            <a class="link" href="/about">{{$t('menu.about')}}</a>
+            <a class="link" href="/proposal">{{$t('menu.proposal')}}</a>
+            <a class="link" href="/tally">{{$t('menu.tally')}}</a>
+            <a class="link" href="/vote">{{$t('menu.vote')}}</a>
         </span>
     </div>
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue'
 export default {
-    
+    setup(props) {
+        let { ctx } = getCurrentInstance()
+        const switchLang = () => {
+            if (ctx.$i18n.locale == 'en') {
+                localStorage.setItem('language', 'zh-CN')
+                ctx.$i18n.locale = 'zh'
+            } else if (ctx.$i18n.locale == 'zh') {
+                localStorage.setItem('language', 'en-US')
+                ctx.$i18n.locale = 'en'
+            }
+        }
+        return {
+            switchLang
+        }
+    }
 }
 </script>
 
 <style scoped>
 .header {
+    --normal-color: #222222;
+    --hover-color: white;
     padding: 1em;
     background-color: #42b983;
 }
@@ -38,30 +57,40 @@ export default {
     font-weight: bold;
 }
 .header span.logo a {
-    color: #222222;
+    color: var(--normal-color);
     text-decoration:none;
 }
 .header span.logo a svg {
     height: 1.2em;
     margin-bottom: -0.1em;
-    fill: #222222;
+    fill: var(--normal-color);
 }
 .header span.logo a svg:hover {
-    fill: white;
+    fill: var(--hover-color);
 }
 .header p span.nav {
     float: right;
 }
-a.link {
+.nav a.link {
     line-height: 1.8em;
     float: right;
     margin: 0 1em;
     font-size: 1.2em;
     font-weight: 400;
-    color: #222222;
+    color: var(--normal-color);
     text-decoration:none;
 }
-a.link:hover {
-    color: white;
+.nav a.link:hover {
+    color: var(--hover-color);
+}
+.nav button {
+    float: right;
+    margin: 0.2em 1em;
+    color: var(--normal-color);
+    border-color: var(--normal-color);
+}
+.nav button:hover {
+    color: var(--hover-color);
+    border-color: var(--hover-color);
 }
 </style>

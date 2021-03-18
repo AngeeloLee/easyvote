@@ -2,15 +2,23 @@
   <h1>{{ msg }}</h1>
   <button @click="count++">count is: {{ count }}</button>
   <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  <p>{{store.state.counter}}</p>
 </template>
 
 <script>
-import {ref} from 'vue'
+import { ref,onMounted } from 'vue'
+import { injectStore } from '../store'
+
 export default {
   name: 'HelloWorld',
-  setup(props) {
+  props: ['msg'],
+  setup() {
     const count = ref(0)
-    return {props, count}
+    const store = injectStore()
+    onMounted(() => {
+      store.increment()
+    })
+    return {store, count}
   },
 }
 </script>
