@@ -31,19 +31,24 @@ const routes = [
     component: () => import('../views/Present.vue')
   },
   {
-    path: '/proposal/:pid',
+    path: '/proposal/:paddr',
     name: 'Proposal',
     component: () => import('../views/Proposal.vue')
   },
-  {
-    path: '/proposal/:pid/tally',
-    name: 'Tally',
-    component: () => import('../views/Tally.vue')
-  },
+  // {
+  //   path: '/proposal/:paddr/tally',
+  //   name: 'Tally',
+  //   component: () => import('../views/Tally.vue')
+  // },
   {
     path: '/vote/:vid',
     name: 'Vote',
     component: () => import('../views/Vote.vue')
+  },
+  {
+    path: '/verify',
+    name: 'Verify',
+    component: () => import('../views/Verify.vue')
   },
   {
     path: '/404',

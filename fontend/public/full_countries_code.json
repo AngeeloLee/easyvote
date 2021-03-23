@@ -1,0 +1,1353 @@
+[
+    {
+        "abbreviation": "AO",
+        "chinese_name": "安哥拉",
+        "code": "244",
+        "name": "Angola",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "AF",
+        "chinese_name": "阿富汗",
+        "code": "93",
+        "name": "Afghanistan",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "AL",
+        "chinese_name": "阿尔巴尼亚",
+        "code": "355",
+        "name": "Albania",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "DZ",
+        "chinese_name": "阿尔及利亚",
+        "code": "213",
+        "name": "Algeria",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "AD",
+        "chinese_name": "安道尔共和国",
+        "code": "376",
+        "name": "Andorra",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "AI",
+        "chinese_name": "安圭拉岛",
+        "code": "1264",
+        "name": "Anguilla",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "AG",
+        "chinese_name": "安提瓜和巴布达",
+        "code": "1268",
+        "name": "Antigua and Barbuda",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "AR",
+        "chinese_name": "阿根廷",
+        "code": "54",
+        "name": "Argentina",
+        "time_zone": "-11"
+    },
+    {
+        "abbreviation": "AM",
+        "chinese_name": "亚美尼亚",
+        "code": "374",
+        "name": "Armenia",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "AC",
+        "chinese_name": "阿森松",
+        "code": "247",
+        "name": "Ascension",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "AU",
+        "chinese_name": "澳大利亚",
+        "code": "61",
+        "name": "Australia",
+        "time_zone": "2"
+    },
+    {
+        "abbreviation": "AT",
+        "chinese_name": "奥地利",
+        "code": "43",
+        "name": "Austria",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "AZ",
+        "chinese_name": "阿塞拜疆",
+        "code": "994",
+        "name": "Azerbaijan",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "BS",
+        "chinese_name": "巴哈马",
+        "code": "1242",
+        "name": "Bahamas",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "BH",
+        "chinese_name": "巴林",
+        "code": "973",
+        "name": "Bahrain",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "BD",
+        "chinese_name": "孟加拉国",
+        "code": "880",
+        "name": "Bangladesh",
+        "time_zone": "-2"
+    },
+    {
+        "abbreviation": "BB",
+        "chinese_name": "巴巴多斯",
+        "code": "1246",
+        "name": "Barbados",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "BY",
+        "chinese_name": "白俄罗斯",
+        "code": "375",
+        "name": "Belarus",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "BE",
+        "chinese_name": "比利时",
+        "code": "32",
+        "name": "Belgium",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "BZ",
+        "chinese_name": "伯利兹",
+        "code": "501",
+        "name": "Belize",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "BJ",
+        "chinese_name": "贝宁",
+        "code": "229",
+        "name": "Benin",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "BM",
+        "chinese_name": "百慕大群岛",
+        "code": "1441",
+        "name": "Bermuda Is.",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "BO",
+        "chinese_name": "玻利维亚",
+        "code": "591",
+        "name": "Bolivia",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "BW",
+        "chinese_name": "博茨瓦纳",
+        "code": "267",
+        "name": "Botswana",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "BR",
+        "chinese_name": "巴西",
+        "code": "55",
+        "name": "Brazil",
+        "time_zone": "-11"
+    },
+    {
+        "abbreviation": "BN",
+        "chinese_name": "文莱",
+        "code": "673",
+        "name": "Brunei",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "BG",
+        "chinese_name": "保加利亚",
+        "code": "359",
+        "name": "Bulgaria",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "BF",
+        "chinese_name": "布基纳法索",
+        "code": "226",
+        "name": "Burkina-faso",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "MM",
+        "chinese_name": "缅甸",
+        "code": "95",
+        "name": "Burma",
+        "time_zone": "-1.3"
+    },
+    {
+        "abbreviation": "BI",
+        "chinese_name": "布隆迪",
+        "code": "257",
+        "name": "Burundi",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "CM",
+        "chinese_name": "喀麦隆",
+        "code": "237",
+        "name": "Cameroon",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "CA",
+        "chinese_name": "加拿大",
+        "code": "1",
+        "name": "Canada",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "KY",
+        "chinese_name": "开曼群岛",
+        "code": "1345",
+        "name": "Cayman Is.",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "CF",
+        "chinese_name": "中非共和国",
+        "code": "236",
+        "name": "Central African Republic",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "TD",
+        "chinese_name": "乍得",
+        "code": "235",
+        "name": "Chad",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "CL",
+        "chinese_name": "智利",
+        "code": "56",
+        "name": "Chile",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "CN",
+        "chinese_name": "中国",
+        "code": "86",
+        "name": "China",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "CO",
+        "chinese_name": "哥伦比亚",
+        "code": "57",
+        "name": "Colombia",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "CG",
+        "chinese_name": "刚果",
+        "code": "242",
+        "name": "Congo",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "CK",
+        "chinese_name": "库克群岛",
+        "code": "682",
+        "name": "Cook Is.",
+        "time_zone": "-18.3"
+    },
+    {
+        "abbreviation": "CR",
+        "chinese_name": "哥斯达黎加",
+        "code": "506",
+        "name": "Costa Rica",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "CU",
+        "chinese_name": "古巴",
+        "code": "53",
+        "name": "Cuba",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "CY",
+        "chinese_name": "塞浦路斯",
+        "code": "357",
+        "name": "Cyprus",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "CZ",
+        "chinese_name": "捷克",
+        "code": "420",
+        "name": "Czech",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "DK",
+        "chinese_name": "丹麦",
+        "code": "45",
+        "name": "Denmark",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "DJ",
+        "chinese_name": "吉布提",
+        "code": "253",
+        "name": "Djibouti",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "DO",
+        "chinese_name": "多米尼加共和国",
+        "code": "1890",
+        "name": "Dominica Rep.",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "EC",
+        "chinese_name": "厄瓜多尔",
+        "code": "593",
+        "name": "Ecuador",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "EG",
+        "chinese_name": "埃及",
+        "code": "20",
+        "name": "Egypt",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "SV",
+        "chinese_name": "萨尔瓦多",
+        "code": "503",
+        "name": "EI Salvador",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "EE",
+        "chinese_name": "爱沙尼亚",
+        "code": "372",
+        "name": "Estonia",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "ET",
+        "chinese_name": "埃塞俄比亚",
+        "code": "251",
+        "name": "Ethiopia",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "FJ",
+        "chinese_name": "斐济",
+        "code": "679",
+        "name": "Fiji",
+        "time_zone": "4"
+    },
+    {
+        "abbreviation": "FI",
+        "chinese_name": "芬兰",
+        "code": "358",
+        "name": "Finland",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "FR",
+        "chinese_name": "法国",
+        "code": "33",
+        "name": "France",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "GF",
+        "chinese_name": "法属圭亚那",
+        "code": "594",
+        "name": "French Guiana",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "GA",
+        "chinese_name": "加蓬",
+        "code": "241",
+        "name": "Gabon",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "GM",
+        "chinese_name": "冈比亚",
+        "code": "220",
+        "name": "Gambia",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "GE",
+        "chinese_name": "格鲁吉亚",
+        "code": "995",
+        "name": "Georgia",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "DE",
+        "chinese_name": "德国",
+        "code": "49",
+        "name": "Germany",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "GH",
+        "chinese_name": "加纳",
+        "code": "233",
+        "name": "Ghana",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "GI",
+        "chinese_name": "直布罗陀",
+        "code": "350",
+        "name": "Gibraltar",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "GR",
+        "chinese_name": "希腊",
+        "code": "30",
+        "name": "Greece",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "GD",
+        "chinese_name": "格林纳达",
+        "code": "1809",
+        "name": "Grenada",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "GU",
+        "chinese_name": "关岛",
+        "code": "1671",
+        "name": "Guam",
+        "time_zone": "2"
+    },
+    {
+        "abbreviation": "GT",
+        "chinese_name": "危地马拉",
+        "code": "502",
+        "name": "Guatemala",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "GN",
+        "chinese_name": "几内亚",
+        "code": "224",
+        "name": "Guinea",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "GY",
+        "chinese_name": "圭亚那",
+        "code": "592",
+        "name": "Guyana",
+        "time_zone": "-11"
+    },
+    {
+        "abbreviation": "HT",
+        "chinese_name": "海地",
+        "code": "509",
+        "name": "Haiti",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "HN",
+        "chinese_name": "洪都拉斯",
+        "code": "504",
+        "name": "Honduras",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "HK",
+        "chinese_name": "香港",
+        "code": "852",
+        "name": "Hongkong",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "HU",
+        "chinese_name": "匈牙利",
+        "code": "36",
+        "name": "Hungary",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "IS",
+        "chinese_name": "冰岛",
+        "code": "354",
+        "name": "Iceland",
+        "time_zone": "-9"
+    },
+    {
+        "abbreviation": "IN",
+        "chinese_name": "印度",
+        "code": "91",
+        "name": "India",
+        "time_zone": "-2.3"
+    },
+    {
+        "abbreviation": "ID",
+        "chinese_name": "印度尼西亚",
+        "code": "62",
+        "name": "Indonesia",
+        "time_zone": "-0.3"
+    },
+    {
+        "abbreviation": "IR",
+        "chinese_name": "伊朗",
+        "code": "98",
+        "name": "Iran",
+        "time_zone": "-4.3"
+    },
+    {
+        "abbreviation": "IQ",
+        "chinese_name": "伊拉克",
+        "code": "964",
+        "name": "Iraq",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "IE",
+        "chinese_name": "爱尔兰",
+        "code": "353",
+        "name": "Ireland",
+        "time_zone": "-4.3"
+    },
+    {
+        "abbreviation": "IL",
+        "chinese_name": "以色列",
+        "code": "972",
+        "name": "Israel",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "IT",
+        "chinese_name": "意大利",
+        "code": "39",
+        "name": "Italy",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "KT",
+        "chinese_name": "科特迪瓦",
+        "code": "225",
+        "name": "Ivory Coast",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "JM",
+        "chinese_name": "牙买加",
+        "code": "1876",
+        "name": "Jamaica",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "JP",
+        "chinese_name": "日本",
+        "code": "81",
+        "name": "Japan",
+        "time_zone": "1"
+    },
+    {
+        "abbreviation": "JO",
+        "chinese_name": "约旦",
+        "code": "962",
+        "name": "Jordan",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "KH",
+        "chinese_name": "柬埔寨",
+        "code": "855",
+        "name": "Kampuchea （Cambodia）",
+        "time_zone": "-1"
+    },
+    {
+        "abbreviation": "KZ",
+        "chinese_name": "哈萨克斯坦",
+        "code": "327",
+        "name": "Kazakstan",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "KE",
+        "chinese_name": "肯尼亚",
+        "code": "254",
+        "name": "Kenya",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "KR",
+        "chinese_name": "韩国",
+        "code": "82",
+        "name": "Korea",
+        "time_zone": "1"
+    },
+    {
+        "abbreviation": "KW",
+        "chinese_name": "科威特",
+        "code": "965",
+        "name": "Kuwait",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "KG",
+        "chinese_name": "吉尔吉斯坦",
+        "code": "331",
+        "name": "Kyrgyzstan",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "LA",
+        "chinese_name": "老挝",
+        "code": "856",
+        "name": "Laos",
+        "time_zone": "-1"
+    },
+    {
+        "abbreviation": "LV",
+        "chinese_name": "拉脱维亚",
+        "code": "371",
+        "name": "Latvia",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "LB",
+        "chinese_name": "黎巴嫩",
+        "code": "961",
+        "name": "Lebanon",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "LS",
+        "chinese_name": "莱索托",
+        "code": "266",
+        "name": "Lesotho",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "LR",
+        "chinese_name": "利比里亚",
+        "code": "231",
+        "name": "Liberia",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "LY",
+        "chinese_name": "利比亚",
+        "code": "218",
+        "name": "Libya",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "LI",
+        "chinese_name": "列支敦士登",
+        "code": "423",
+        "name": "Liechtenstein",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "LT",
+        "chinese_name": "立陶宛",
+        "code": "370",
+        "name": "Lithuania",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "LU",
+        "chinese_name": "卢森堡",
+        "code": "352",
+        "name": "Luxembourg",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "MO",
+        "chinese_name": "澳门",
+        "code": "853",
+        "name": "Macao",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "MG",
+        "chinese_name": "马达加斯加",
+        "code": "261",
+        "name": "Madagascar",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "MW",
+        "chinese_name": "马拉维",
+        "code": "265",
+        "name": "Malawi",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "MY",
+        "chinese_name": "马来西亚",
+        "code": "60",
+        "name": "Malaysia",
+        "time_zone": "-0.5"
+    },
+    {
+        "abbreviation": "MV",
+        "chinese_name": "马尔代夫",
+        "code": "960",
+        "name": "Maldives",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "ML",
+        "chinese_name": "马里",
+        "code": "223",
+        "name": "Mali",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "MT",
+        "chinese_name": "马耳他",
+        "code": "356",
+        "name": "Malta",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "",
+        "chinese_name": "马里亚纳群岛",
+        "code": "1670",
+        "name": "Mariana Is.",
+        "time_zone": "1"
+    },
+    {
+        "abbreviation": "MQ",
+        "chinese_name": "马提尼克",
+        "code": "596",
+        "name": "Martinique",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "MU",
+        "chinese_name": "毛里求斯",
+        "code": "230",
+        "name": "Mauritius",
+        "time_zone": "-4"
+    },
+    {
+        "abbreviation": "MX",
+        "chinese_name": "墨西哥",
+        "code": "52",
+        "name": "Mexico",
+        "time_zone": "-15"
+    },
+    {
+        "abbreviation": "MD",
+        "chinese_name": "摩尔多瓦",
+        "code": "373",
+        "name": "Moldova",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "MC",
+        "chinese_name": "摩纳哥",
+        "code": "377",
+        "name": "Monaco",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "MN",
+        "chinese_name": "蒙古",
+        "code": "976",
+        "name": "Mongolia",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "MS",
+        "chinese_name": "蒙特塞拉特岛",
+        "code": "1664",
+        "name": "Montserrat Is.",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "MA",
+        "chinese_name": "摩洛哥",
+        "code": "212",
+        "name": "Morocco",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "MZ",
+        "chinese_name": "莫桑比克",
+        "code": "258",
+        "name": "Mozambique",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "NA",
+        "chinese_name": "纳米比亚",
+        "code": "264",
+        "name": "Namibia",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "NR",
+        "chinese_name": "瑙鲁",
+        "code": "674",
+        "name": "Nauru",
+        "time_zone": "4"
+    },
+    {
+        "abbreviation": "NP",
+        "chinese_name": "尼泊尔",
+        "code": "977",
+        "name": "Nepal",
+        "time_zone": "-2.3"
+    },
+    {
+        "abbreviation": "AN",
+        "chinese_name": "荷属安的列斯",
+        "code": "599",
+        "name": "Netheriands Antilles",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "NL",
+        "chinese_name": "荷兰",
+        "code": "31",
+        "name": "Netherlands",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "NZ",
+        "chinese_name": "新西兰",
+        "code": "64",
+        "name": "New Zealand",
+        "time_zone": "4"
+    },
+    {
+        "abbreviation": "NI",
+        "chinese_name": "尼加拉瓜",
+        "code": "505",
+        "name": "Nicaragua",
+        "time_zone": "-14"
+    },
+    {
+        "abbreviation": "NE",
+        "chinese_name": "尼日尔",
+        "code": "227",
+        "name": "Niger",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "NG",
+        "chinese_name": "尼日利亚",
+        "code": "234",
+        "name": "Nigeria",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "KP",
+        "chinese_name": "朝鲜",
+        "code": "850",
+        "name": "North Korea",
+        "time_zone": "1"
+    },
+    {
+        "abbreviation": "NO",
+        "chinese_name": "挪威",
+        "code": "47",
+        "name": "Norway",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "OM",
+        "chinese_name": "阿曼",
+        "code": "968",
+        "name": "Oman",
+        "time_zone": "-4"
+    },
+    {
+        "abbreviation": "PK",
+        "chinese_name": "巴基斯坦",
+        "code": "92",
+        "name": "Pakistan",
+        "time_zone": "-2.3"
+    },
+    {
+        "abbreviation": "PA",
+        "chinese_name": "巴拿马",
+        "code": "507",
+        "name": "Panama",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "PG",
+        "chinese_name": "巴布亚新几内亚",
+        "code": "675",
+        "name": "Papua New Cuinea",
+        "time_zone": "2"
+    },
+    {
+        "abbreviation": "PY",
+        "chinese_name": "巴拉圭",
+        "code": "595",
+        "name": "Paraguay",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "PE",
+        "chinese_name": "秘鲁",
+        "code": "51",
+        "name": "Peru",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "PH",
+        "chinese_name": "菲律宾",
+        "code": "63",
+        "name": "Philippines",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "PL",
+        "chinese_name": "波兰",
+        "code": "48",
+        "name": "Poland",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "PF",
+        "chinese_name": "法属玻利尼西亚",
+        "code": "689",
+        "name": "French Polynesia",
+        "time_zone": "3"
+    },
+    {
+        "abbreviation": "PT",
+        "chinese_name": "葡萄牙",
+        "code": "351",
+        "name": "Portugal",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "PR",
+        "chinese_name": "波多黎各",
+        "code": "1787",
+        "name": "Puerto Rico",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "QA",
+        "chinese_name": "卡塔尔",
+        "code": "974",
+        "name": "Qatar",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "RE",
+        "chinese_name": "留尼旺",
+        "code": "262",
+        "name": "Reunion",
+        "time_zone": "-4"
+    },
+    {
+        "abbreviation": "RO",
+        "chinese_name": "罗马尼亚",
+        "code": "40",
+        "name": "Romania",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "RU",
+        "chinese_name": "俄罗斯",
+        "code": "7",
+        "name": "Russia",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "LC",
+        "chinese_name": "圣卢西亚",
+        "code": "1758",
+        "name": "Saint Lueia",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "VC",
+        "chinese_name": "圣文森特岛",
+        "code": "1784",
+        "name": "Saint Vincent",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "AS",
+        "chinese_name": "东萨摩亚（美）",
+        "code": "684",
+        "name": "Samoa Eastern",
+        "time_zone": "-19"
+    },
+    {
+        "abbreviation": "WS",
+        "chinese_name": "西萨摩亚",
+        "code": "685",
+        "name": "Samoa Western",
+        "time_zone": "-19"
+    },
+    {
+        "abbreviation": "SM",
+        "chinese_name": "圣马力诺",
+        "code": "378",
+        "name": "San Marino",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "ST",
+        "chinese_name": "圣多美和普林西比",
+        "code": "239",
+        "name": "Sao Tome and Principe",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "SA",
+        "chinese_name": "沙特阿拉伯",
+        "code": "966",
+        "name": "Saudi Arabia",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "SN",
+        "chinese_name": "塞内加尔",
+        "code": "221",
+        "name": "Senegal",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "SC",
+        "chinese_name": "塞舌尔",
+        "code": "248",
+        "name": "Seychelles",
+        "time_zone": "-4"
+    },
+    {
+        "abbreviation": "SL",
+        "chinese_name": "塞拉利昂",
+        "code": "232",
+        "name": "Sierra Leone",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "SG",
+        "chinese_name": "新加坡",
+        "code": "65",
+        "name": "Singapore",
+        "time_zone": "0.3"
+    },
+    {
+        "abbreviation": "SK",
+        "chinese_name": "斯洛伐克",
+        "code": "421",
+        "name": "Slovakia",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "SI",
+        "chinese_name": "斯洛文尼亚",
+        "code": "386",
+        "name": "Slovenia",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "SB",
+        "chinese_name": "所罗门群岛",
+        "code": "677",
+        "name": "Solomon Is.",
+        "time_zone": "3"
+    },
+    {
+        "abbreviation": "SO",
+        "chinese_name": "索马里",
+        "code": "252",
+        "name": "Somali",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "ZA",
+        "chinese_name": "南非",
+        "code": "27",
+        "name": "South Africa",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "ES",
+        "chinese_name": "西班牙",
+        "code": "34",
+        "name": "Spain",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "LK",
+        "chinese_name": "斯里兰卡",
+        "code": "94",
+        "name": "Sri Lanka",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "LC",
+        "chinese_name": "圣卢西亚",
+        "code": "1758",
+        "name": "St.Lucia",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "VC",
+        "chinese_name": "圣文森特",
+        "code": "1784",
+        "name": "St.Vincent",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "SD",
+        "chinese_name": "苏丹",
+        "code": "249",
+        "name": "Sudan",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "SS",
+        "chinese_name": "南苏丹",
+        "code": "211",
+        "name": "South Sudan",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "SR",
+        "chinese_name": "苏里南",
+        "code": "597",
+        "name": "Suriname",
+        "time_zone": "-11.3"
+    },
+    {
+        "abbreviation": "SZ",
+        "chinese_name": "斯威士兰",
+        "code": "268",
+        "name": "Swaziland",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "SE",
+        "chinese_name": "瑞典",
+        "code": "46",
+        "name": "Sweden",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "CH",
+        "chinese_name": "瑞士",
+        "code": "41",
+        "name": "Switzerland",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "SY",
+        "chinese_name": "叙利亚",
+        "code": "963",
+        "name": "Syria",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "TW",
+        "chinese_name": "台湾省",
+        "code": "886",
+        "name": "Taiwan",
+        "time_zone": "0"
+    },
+    {
+        "abbreviation": "TJ",
+        "chinese_name": "塔吉克斯坦",
+        "code": "992",
+        "name": "Tajikstan",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "TZ",
+        "chinese_name": "坦桑尼亚",
+        "code": "255",
+        "name": "Tanzania",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "TH",
+        "chinese_name": "泰国",
+        "code": "66",
+        "name": "Thailand",
+        "time_zone": "-1"
+    },
+    {
+        "abbreviation": "TG",
+        "chinese_name": "多哥",
+        "code": "228",
+        "name": "Togo",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "TO",
+        "chinese_name": "汤加",
+        "code": "676",
+        "name": "Tonga",
+        "time_zone": "4"
+    },
+    {
+        "abbreviation": "TT",
+        "chinese_name": "特立尼达和多巴哥",
+        "code": "1809",
+        "name": "Trinidad and Tobago",
+        "time_zone": "-12"
+    },
+    {
+        "abbreviation": "TN",
+        "chinese_name": "突尼斯",
+        "code": "216",
+        "name": "Tunisia",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "TR",
+        "chinese_name": "土耳其",
+        "code": "90",
+        "name": "Turkey",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "TM",
+        "chinese_name": "土库曼斯坦",
+        "code": "993",
+        "name": "Turkmenistan",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "UG",
+        "chinese_name": "乌干达",
+        "code": "256",
+        "name": "Uganda",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "UA",
+        "chinese_name": "乌克兰",
+        "code": "380",
+        "name": "Ukraine",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "AE",
+        "chinese_name": "阿拉伯联合酋长国",
+        "code": "971",
+        "name": "United Arab Emirates",
+        "time_zone": "-4"
+    },
+    {
+        "abbreviation": "GB",
+        "chinese_name": "英国",
+        "code": "44",
+        "name": "United Kiongdom",
+        "time_zone": "-8"
+    },
+    {
+        "abbreviation": "US",
+        "chinese_name": "美国",
+        "code": "1",
+        "name": "United States of America",
+        "time_zone": "-13"
+    },
+    {
+        "abbreviation": "UY",
+        "chinese_name": "乌拉圭",
+        "code": "598",
+        "name": "Uruguay",
+        "time_zone": "-10.3"
+    },
+    {
+        "abbreviation": "UZ",
+        "chinese_name": "乌兹别克斯坦",
+        "code": "233",
+        "name": "Uzbekistan",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "VE",
+        "chinese_name": "委内瑞拉",
+        "code": "58",
+        "name": "Venezuela",
+        "time_zone": "-12.3"
+    },
+    {
+        "abbreviation": "VN",
+        "chinese_name": "越南",
+        "code": "84",
+        "name": "Vietnam",
+        "time_zone": "-1"
+    },
+    {
+        "abbreviation": "YE",
+        "chinese_name": "也门",
+        "code": "967",
+        "name": "Yemen",
+        "time_zone": "-5"
+    },
+    {
+        "abbreviation": "YU",
+        "chinese_name": "南斯拉夫",
+        "code": "381",
+        "name": "Yugoslavia",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "ZW",
+        "chinese_name": "津巴布韦",
+        "code": "263",
+        "name": "Zimbabwe",
+        "time_zone": "-6"
+    },
+    {
+        "abbreviation": "CD",
+        "chinese_name": "刚果民主共和国",
+        "code": "243",
+        "name": "Congo-kinshasa",
+        "time_zone": "-7"
+    },
+    {
+        "abbreviation": "ZM",
+        "chinese_name": "赞比亚",
+        "code": "260",
+        "name": "Zambia",
+        "time_zone": "-6"
+    }
+]

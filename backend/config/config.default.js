@@ -26,7 +26,8 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    // myAppName: 'egg',
+    // 会话有效时长（分钟）
+    sesiionLifetime: 60 * 24 * 30,
   };
 
   return {
