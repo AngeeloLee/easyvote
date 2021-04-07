@@ -26,23 +26,43 @@ const routes = [
     component: () => import('../views/User.vue')
   },
   {
-    path: '/proposal/present',
-    name: 'Present',
-    component: () => import('../views/Present.vue')
+    path: '/user/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue')
   },
   {
-    path: '/proposal/:paddr',
-    name: 'Proposal',
-    component: () => import('../views/Proposal.vue')
+    path: '/create',
+    name: 'Create',
+    component: () => import('../views/Create.vue')
   },
-  // {
-  //   path: '/proposal/:paddr/tally',
-  //   name: 'Tally',
-  //   component: () => import('../views/Tally.vue')
-  // },
+  {
+    path: '/create/:cid',
+    name: 'CreateQuery',
+    component: () => import('../views/Create.vue')
+  },
+  {
+    path: '/poll',
+    name: 'Poll',
+    component: () => import('../views/Poll.vue')
+  },
+  {
+    path: '/poll/:paddr',
+    name: 'PollQuery',
+    component: () => import('../views/Poll.vue')
+  },
+  {
+    path: '/tally',
+    name: 'Tally',
+    component: () => import('../views/Tally.vue')
+  },
+  {
+    path: '/vote',
+    name: 'Vote',
+    component: () => import('../views/Vote.vue')
+  },
   {
     path: '/vote/:vid',
-    name: 'Vote',
+    name: 'VoteQuery',
     component: () => import('../views/Vote.vue')
   },
   {

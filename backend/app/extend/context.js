@@ -1,9 +1,23 @@
-// import Web3 from 'web3';
+'use strict';
 
-// const web3 = new Web3();
+const Web3 = require('web3');
+const web3 = new Web3();
 
 module.exports = {
     contract: {
         // 编译相关
+    },
+    // 参数校验
+    regexps: {
+        account: /^([0-9a-zA-Z\-_]{5,64})|(1[^0][0-9]{9})|([0-9a-zA-Z\-_\.]+@[0-9a-zA-Z\-_]+(\.[0-9a-zA-Z\-_]+)+)$/,
+        contact: /^(1[^0][0-9]{9})|([0-9a-zA-Z\-_\.]+@[0-9a-zA-Z\-_]+(\.[0-9a-zA-Z\-_]+)+)$/,
+        username: /^[0-9a-zA-Z\-_]{5,64}$/,
+        mobile: /^1[^0][0-9]{9}$/,
+        email: /^[0-9a-zA-Z\-_\.]+@[0-9a-zA-Z\-_]+(\.[0-9a-zA-Z\-_]+)+$/,
+        code: /^[0-9]{6}$/,
+        password: /^[0-9A-F]{32}$/,
+        address: /^[0-9a-zA-Z]{128}$/,
+        // 基础
+        bool: /^(true)|(false)$/,
     }
 };

@@ -6,12 +6,12 @@
       <a :active="tab!=='register'" @click="tab='pwd-login'">{{$t('login.login')}}</a>/
       <a :active="tab==='register'" @click="tab='register'">{{$t('login.register')}}</a>
     </div>
-    <!-- 密码登录 -->
+    <!-- 密码登录 --> 
     <form v-if="tab==='pwd-login'" class="pwd-login">
       <p class="label">{{$t('login.account')}}</p>
-      <a-input v-model="account" :placeholder="$t('login.accountHolder')"/>
+      <a-input :placeholder="$t('login.accountHolder')" @change="e=>account=e.target.value"/>
       <p class="label">{{$t('login.password')}}</p>
-      <a-input-password v-model="password" :placeholder="$t('login.passwordHolder')"/>
+      <a-input-password :placeholder="$t('login.passwordHolder')" @change="e=>password=e.target.value"/>
       <a-button class="action" type="primary" @click="login('pwd-login')" block>{{$t('login.loginButton')}}</a-button>
       <a-row>
         <a-col :span="14">
@@ -27,24 +27,25 @@
     <form v-else-if="tab==='sms-login'" class="sms-login">
       <p class="label">{{$t('login.mobile')}}</p>
       <a-row>
-        <a-col :span="6">
+        <a-col :span="10">
           <a-select :default-value="country" @change="val=>country=val">
-            <a-select-option v-for="code in countriesCode" :value="code" :key="code">
-              {{'+'+code}}
+            <a-select-option v-for="ctr in fullCountriesCode" :value="ctr.code" :key="ctr.code">
+              {{'+'+ctr.code+' '+ctr.name+' '+ctr.chinese_name}}
             </a-select-option>
           </a-select>
         </a-col>
-        <a-col :span="18">
-          <a-input v-model="mobile" :placeholder="$t('login.mobileHolder')"/>
+        <a-col :span="14">
+          <a-input :placeholder="$t('login.mobileHolder')" @change="e=>mobile=e.target.value"/>
         </a-col>
       </a-row>
       <p class="label">{{$t('login.code')}}</p>
       <a-row>
         <a-col :span="18">
-          <a-input v-model="mobile" :placeholder="$t('login.codeHolder')"/>
+          <a-input :placeholder="$t('login.codeHolder')"  @change="e=>code=e.target.value"/>
         </a-col>
         <a-col :span="6">
-          <a-button type="primary" @click="getCode('sms')" block>{{$t('login.getCodeButton')}}</a-button>
+          <a-button v-if="!timer" type="primary" @click="getCode('mobile')" block>{{$t('login.getCodeButton')}}</a-button>
+          <a-button v-else type="primary" disabled block>{{timeCount}}s</a-button>
         </a-col>
       </a-row>
       <a-button class="action" type="primary" @click="login('sms-login')" block>{{$t('login.loginButton')}}</a-button>
@@ -53,19 +54,23 @@
           <span class="left"><a @click="tab='pwd-login'">{{$t('login.passwordLogin')}}</a></span><br>
           <span class="left"><a @click="tab='email-login'">{{$t('login.emailLogin')}}</a></span>
         </a-col>
+        <a-col :span="10">
+          <span class="right"><a-checkbox @change="e=>rememberMe=e.target.checked">{{$t('login.rememberMe')}}</a-checkbox></span>
+        </a-col>
       </a-row>
     </form>
     <!-- 邮件验证码登录 -->
     <form v-else-if="tab==='email-login'" class="email-login">
       <p class="label">{{$t('login.email')}}</p>
-      <a-input v-model="email" :placeholder="$t('login.emailHolder')"/>
+      <a-input :placeholder="$t('login.emailHolder')" @change="e=>email=e.target.value"/>
       <p class="label">{{$t('login.code')}}</p>
       <a-row>
         <a-col :span="18">
-          <a-input v-model="mobile" :placeholder="$t('login.codeHolder')"/>
+          <a-input :placeholder="$t('login.codeHolder')" @change="e=>code=e.target.value"/>
         </a-col>
         <a-col :span="6">
-          <a-button type="primary" @click="getCode('email')" block>{{$t('login.getCodeButton')}}</a-button>
+          <a-button v-if="!timer" type="primary" @click="getCode('email')" block>{{$t('login.getCodeButton')}}</a-button>
+          <a-button v-else type="primary" disabled block>{{timeCount}}s</a-button>
         </a-col>
       </a-row>
       <a-button class="action" type="primary" @click="login('email-login')" block>{{$t('login.loginButton')}}</a-button>
@@ -74,6 +79,9 @@
           <span class="left"><a @click="tab='pwd-login'">{{$t('login.passwordLogin')}}</a></span><br>
           <span class="left"><a @click="tab='sms-login'">{{$t('login.smsLogin')}}</a></span>
         </a-col>
+        <a-col :span="10">
+          <span class="right"><a-checkbox @change="e=>rememberMe=e.target.checked">{{$t('login.rememberMe')}}</a-checkbox></span>
+        </a-col>
       </a-row>
     </form>
     <!-- 注册 -->
@@ -81,7 +89,7 @@
       <a-row>
         <a-col :span="14">
           <p class="label">{{$t('login.registerWay')}}</p>
-          <a-radio-group v-model="registerWay" @change="e=>registerWay=e.target.value">
+          <a-radio-group @change="e=>registerWay=e.target.value">
             <a-radio-button value="mobile">{{$t('login.useMobile')}}</a-radio-button>
             <a-radio-button value="email">{{$t('login.useEmail')}}</a-radio-button>
           </a-radio-group>
@@ -94,77 +102,139 @@
       <div v-if="registerWay==='mobile'">
         <p class="label">{{$t('login.mobile')}}</p>
         <a-row>
-          <a-col :span="6">
+          <a-col :span="10">
             <a-select :default-value="country" @change="val=>country=val">
-              <a-select-option v-for="code in countriesCode" :value="code" :key="code">
-                {{'+'+code}}
+              <a-select-option v-for="ctr in fullCountriesCode" :value="ctr.code" :key="ctr.code">
+                {{'+'+ctr.code+' '+ctr.name+' '+ctr.chinese_name}}
               </a-select-option>
             </a-select>
           </a-col>
-          <a-col :span="18">
-            <a-input v-model="mobile" :placeholder="$t('login.mobileHolder')"/>
+          <a-col :span="14">
+            <a-input :placeholder="$t('login.mobileHolder')" @change="e=>mobile=e.target.value"/>
           </a-col>
         </a-row>
       </div>
       <div v-else>
         <p class="label">{{$t('login.email')}}</p>
-        <a-input v-model="email" :placeholder="$t('login.emailHolder')"/>
+        <a-input :placeholder="$t('login.emailHolder')" @change="e=>email=e.target.value"/>
       </div>
       <p class="label">{{$t('login.code')}}</p>
       <a-row>
         <a-col :span="18">
-          <a-input v-model="mobile" :placeholder="$t('login.codeHolder')"/>
+          <a-input :placeholder="$t('login.codeHolder')" @change="e=>code=e.target.value"/>
         </a-col>
         <a-col :span="6">
-          <a-button type="primary" @click="getCode('email')" block>{{$t('login.getCodeButton')}}</a-button>
+          <a-button v-if="!timer" type="primary" @click="getCode(registerWay)" block>{{$t('login.getCodeButton')}}</a-button>
+          <a-button v-else type="primary" disabled block>{{timeCount}}s</a-button>
         </a-col>
       </a-row>
-      <a-button class="action" type="primary" @click="register" block>{{$t('login.registerButton')}}</a-button>
+      <p class="label">{{$t('login.password')}}</p>
+      <a-input-password :placeholder="$t('login.passwordHolder')" @change="e=>password=e.target.value"/>
+      <p class="label">{{$t('login.confirmPassword')}}</p>
+      <a-input-password :placeholder="$t('login.confirmPasswordHolder')" @change="e=>confirmPassword=e.target.value"/>
+      <a-button class="action" type="primary" @click="register(registerWay)" block>{{$t('login.registerButton')}}</a-button>
       <span class="left"><a @click="tab='pwd-login'">{{$t('login.backToLogin')}}</a></span>
     </form>
   </div>
 </template>
 
 <script>
-import { toRefs, getCurrentInstance, reactive } from "vue";
-import { countriesCode } from '../../public/countries_code.json';
+import { toRefs, getCurrentInstance, reactive, onBeforeMount } from "vue";
+import { fullCountriesCode } from '../assets/full_countries_code.json';
 import md5 from 'js-md5';
+import { injectStore } from '../store'
 export default {
   name: "Login",
   setup() {
     const { ctx } = getCurrentInstance()
-    // const md5 = require('crypto-js/hmac-md5')
+    const store = injectStore()
     const data = reactive({
-      countriesCode,
+      fullCountriesCode,
       tab: 'pwd-login',
-      registerWay: 'mobile',
+      registerWay: 'email',
       createAddress: true,
       rememberMe: false,
       account: '',
       password: '',
+      confirmPassword: '',
       country: '86',
       mobile: '',
       email: '',
       code: '',
+      timer: null,
+      timeCount: 60,
     })
-    const login = (way) => {
-      if (way === 'pwd-login') {
-        // ctx.$axios.
-      } else if (way === 'sms-login') {
-
-      } else if (way === 'email-login') {
-
+    onBeforeMount(() => {
+      if (store.state.logined) {
+        ctx.$router.push({path: '/login'})
       }
+    })
+    // 登录
+    const login = (way) => {
+      let url = null
+      let params = null
+      if (way === 'pwd-login') {
+        url = ctx.$api.pwdLogin
+        params = {
+          account: data.account,
+          password: md5(data.password).toUpperCase(),
+          remember: data.rememberMe,
+        }
+      } else if (way === 'sms-login') {
+        url = ctx.$api.codeLogin
+        params = {
+          contact: data.mobile,
+          password: data.code,
+          remember: data.rememberMe,
+        }
+      } else if (way === 'email-login') {
+        url = ctx.$api.codeLogin
+        params = {
+          contact: data.email,
+          password: data.code,
+          remember: data.rememberMe,
+        }
+      }
+      ctx.axios.post(url, params).then(res => {
+        store.logined(res.data.username)
+        ctx.$router.go(-1)
+      })
     }
-    const register = () => {
-
+    // 注册
+    const register = (way) => {
+      const contact = way === 'email' ? data.email : data.mobile
+      ctx.axios.post(ctx.$api.register, {
+        contact,
+        password: md5(data.password).toUpperCase(),
+        code: data.code,
+        createAddress: data.createAddress,
+      }).then(res => {
+        ctx.$notification.success({
+          message: ctx.$i18n.tc('login.succRegisterMsg'),
+          description: ctx.$i18n.tc('login.succRegisterDesc'),
+        })
+        data.tab = 'pwd-login'
+      })
     }
+    // 获取验证码
     const getCode = (way) => {
-      // console.log('get code way: ', way)
-      // console.log('country: ', data.country)
+      const contact = way === 'email' ? data.email : data.mobile
+      ctx.axios.post(ctx.$api.sendCode, { contact }).then(res => {
+        if (!data.timer) {
+          data.timer = setInterval(() => {
+            data.timeCount--
+            if (data.timeCount < 0) {
+              clearInterval(data.timer)
+              data.timer = null
+              data.timeCount = 60
+            }
+          }, 1000)
+        }
+      })
     }
     return { 
       ...toRefs(data),
+      store,
       login,
       register,
       getCode,

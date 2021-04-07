@@ -1,7 +1,8 @@
 <template>
+<div>
     <div class="header">
         <span class="logo">
-            <a @click="$router.push({path:'/'})">
+            <a :active="$route.path=='/'" @click="$router.push({path:'/'})">
                 <svg v-if="$i18n.locale === 'en'" data-name="ev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350.91 86.87">
                     <polygon class="cls-1" points="42.46 77.24 14.85 52.39 22.44 43.96 42.46 61.99 86 22.78 86 0 0 0 0 86 86 86 86 38.04 42.46 77.24"/>
                     <path class="cls-1" d="M225.19,368.26V310h25v8.52H233.37v15.42h15.7v8.53h-15.7v17.28h16.81v8.53Z" transform="translate(-113 -297)"/>
@@ -23,21 +24,32 @@
         </span>
         <span class="nav">
             <a-button size="small" @click="switchLang" ghost>{{$t('menu.switchLang')}}</a-button>
-            <a class="link" @click="$router.push({path:'/login'})">{{$t('menu.login')}}</a>
-            <a class="link" @click="$router.push({path:'/about'})">{{$t('menu.about')}}</a>
-            <a class="link" @click="$router.push({path:'/present'})">{{$t('menu.create')}}</a>
-            <a class="link" @click="$router.push({path:'/tally'})">{{$t('menu.tally')}}</a>
-            <a class="link" @click="$router.push({path:'/verify'})">{{$t('menu.verify')}}</a>
-            <a class="link" @click="$router.push({path:'/vote'})">{{$t('menu.vote')}}</a>
+            <a v-if="!store.state.logined" :active="$route.path.startsWith('/login')" class="link" @click="$router.push({path:'/login'})">{{$t('menu.login')}}</a>
+            <a v-else class="link user" :active="$route.path.startsWith('/user')" @click="$router.push({path:'/user'})"><i class="iconfont icon-user"></i>{{store.state.username}}</a>
+            <a class="link" :active="$route.path.startsWith('/about')" @click="$router.push({path:'/about'})">{{$t('menu.about')}}</a>
+            <a class="link" :active="$route.path.startsWith('/create')" @click="$router.push({path:'/create'})">{{$t('menu.create')}}</a>
+            <a class="link" :active="$route.path.startsWith('/tally')" @click="$router.push({path:'/tally'})">{{$t('menu.tally')}}</a>
+            <a class="link" :active="$route.path.startsWith('/verify')" @click="$router.push({path:'/verify'})">{{$t('menu.verify')}}</a>
+            <a class="link" :active="$route.path.startsWith('/vote')" @click="$router.push({path:'/vote'})">{{$t('menu.vote')}}</a>
         </span>
     </div>
+    <div v-if="showUnsupportNotice" class="notice">
+        <span><a-button @click="showUnsupportNotice=false" type="link">{{$t('menu.closeNoticeButton')}}</a-button></span>
+        <p>{{$t('menu.unsupportNotice')}}</p>
+    </div>
+</div> 
 </template>
 
 <script>
-import { getCurrentInstance } from 'vue'
+import { getCurrentInstance, reactive, toRefs } from 'vue'
+import { injectStore } from '../store'
 export default {
     setup(props) {
         const { ctx } = getCurrentInstance()
+        const data = reactive({
+            showUnsupportNotice: true,
+        })
+        const store = injectStore()
         const switchLang = () => {
             if (ctx.$i18n.locale == 'en') {
                 localStorage.setItem('language', 'zh')
@@ -48,6 +60,8 @@ export default {
             }
         }
         return {
+            ...toRefs(data),
+            store,
             switchLang
         }
     }
@@ -56,9 +70,11 @@ export default {
 
 <style scoped>
 .header {
-    --hover-color: white;
+    --hover-color: var(--theme-color);
     padding: 1em;
-    background-color: var(--theme-color);
+    background-color: white;
+    background-color: var(--back-color);
+    /* border-bottom: 1px solid rgb(219, 219, 219); */
 }
 .header span.logo {
     margin: 0;
@@ -78,12 +94,15 @@ export default {
 .header span.logo a svg:hover {
     fill: var(--hover-color);
 }
+.header span.logo a[active="true"] svg {
+    fill: var(--hover-color);
+}
 .nav a.link {
     line-height: 1.8em;
     margin: 0 1em;
     float: right;
     font-size: 1.2em;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--words-color);
     text-decoration:none;
 }
@@ -109,6 +128,12 @@ export default {
     left: 10%;
     transform: scaleX(1);
 }
+.nav a.link[active="true"] {
+    color: var(--hover-color);
+}
+.nav a.link.user {
+    font-weight: 400;
+}
 .nav button {
     float: right;
     margin: 0.2em 1em;
@@ -118,5 +143,39 @@ export default {
 .nav button:hover {
     color: var(--hover-color);
     border-color: var(--hover-color);
+}
+.notice {
+    background-color: rgb(255, 222, 160);
+    text-align: center;
+}
+.notice p {
+    margin: 0;
+    padding: 0.5em;
+    color: var(--words-color);
+}
+.notice span {
+    float: right;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1616948845630'); /* IE9 */
+  src: url('iconfont.eot?t=1616948845630#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAL0AAsAAAAABpwAAAKlAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqBJIE4ATYCJAMICwYABCAFhG0HMhvgBRHVkzlkXydviu2ozg6HO0WNgWlbO2yUfaWKrbpQeDHq9EeU/UwQ0X6/2Xf3zYGkGokqUlUShELIhCQaxaI00ZA/1NzueQIjVgublFCMyfufG2Z9xAtpmETvKpP7E78dVhq58WiBBnhkrtcDBhj/zG7vbkhOlbugCS3I2y8UBiZy1gLF6GD4APjj3ukfBbRxvvPKZY5Jk7oA40AKaG+MIiuS2BvGLnAJjyGAnUjSkcLiykYKjbVKAJkcG+mjcmE0muWsCOaagxo5IIvV2IuQYD/8vvyiKVYwMCmshtpdNMhEsQtY/XHyESIJBHTcBCggHdAgjbXpahhhJIWdN4kFNDr2wWMrstc/DzFjVTsBCIfie5K40lvlNgDQMBpSgZZR14Ny+isLz3dlb+1/y3iTG9WVL8wKKwSG0kYGsxbEJxBa9HJS5tF2juovEBBxOlHKXM42c/ghzQkUxJPqc3uOE6FcV688hSABNCAsFfJZdXQIVBRieiELJVQIf2YAENRDCBB4/+isnvm3rAF42dcLlwRN1DxgPZ9H4L9JevZoXWZZDK1KavMGqaj7abJjB4Jgv5+3sfrQm3QK1pyEgYGFCFBYiUc1MR1MOMgAM1ZywE4aJccdBJiHEW0DUtkCIHg5AgM3p6DwcoNq4iuYCOMfzHhFgZ3mFLjQQaKM2QvmLVQYdVDfYGmBLxwbl6LaBRp3V6GsLGRskGIrBg25XszN0UeaY0v8MJrMAgQFHszAc+i6AYQU2KixbDKHw1pN1L1J1gIvUeISKow6qG+wtMAX/mAulT6/QOPuKtTSVePfIMXW+NCQ6z3Qudrv1XUvr8QPo8ksQFDgwQzMQ9cNIKyfZ6PGsjkiGQ5rdj/RVy2vr/W+7hDQWIYQe7aiBhRLV/x6L5EAAAAA') format('woff2'),
+  url('iconfont.woff?t=1616948845630') format('woff'),
+  url('iconfont.ttf?t=1616948845630') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1616948845630#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 1em;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 0.3em 0;
+}
+
+.icon-user:before {
+  content: "\e606";
 }
 </style>

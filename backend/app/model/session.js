@@ -9,19 +9,17 @@ module.exports = app => {
     // 用户ID
     uid: { type: Schema.Types.ObjectId, ref: 'User', },
     // token
-    token: { type: String, required: true, },
-    // 有效位
-    valid: { type: Boolean, default: true, },
-    // 失效时间
-    expireAt: {
-        type: Date, 
-        default: function() {
-            const now = new Date();
-            const expire = new Date();
-            expire.setMinutes(now.getMinutes() + app.config.sessionLifetime);
-            return expire;
-        },
-    },
+    token: { type: String, unique: true, },
+    // 到期时间
+    // expiry: {
+    //   type: Date, 
+    //   default: (() => {
+    //     const now = new Date();
+    //     const expiry = new Date();
+    //     expiry.setSeconds(now.getSeconds() + app.config.sessionLifetime);
+    //     return expiry;
+    //   })(),
+    // },
   });
   return mongoose.model('Session', SessionSchema);
 };

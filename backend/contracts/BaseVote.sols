@@ -1,4 +1,4 @@
-// pragma solidity ^0.7.0;
+pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
 /// @title 基础投票合约 v1.1 2021.3.20

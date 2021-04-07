@@ -8,17 +8,25 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.get('/user/add', controller.user.add);
 
+  /************************ 临时接口 */
+  // router.post('/test/code/register', )
+
   /************************ 用户操作 */
   /**
-   * 用户登录
+   * 密码登录
    * @request account - 账户 username/mobile/email
-   * @request way - 登录方式 PWD/CODE
    * @request password - 密码 MD5(password)
-   * @request code - 验证码 [可选]
-   * @response token - session标记
-   * @response uid - 用户id
+   * @request remember - 是否记住
    */
-  router.post('/user/login', controller.user.login);
+  router.post('/user/pwdlogin', controller.user.pwdLogin);
+
+  /**
+   * 验证码登录
+   * @request contact - 账户 mobile/email
+   * @request code - 验证码
+   * @request remember - 是否记住
+   */
+   router.post('/user/codelogin', controller.user.codeLogin);
 
   /**
    * 用户登出
@@ -28,14 +36,15 @@ module.exports = app => {
 
   /**
    * 用户注册
-   * @request account - 账户 username/mobile/email
+   * @request contact - 账户 mobile/email
    * @request password - 密码 MD5(password)
    * @request code - 验证码
+   * @request createAddress - 是否创建账户
    */
   router.post('/user/register', controller.user.register);
 
   /**
-   * 获取用户信息
+   * 获取用户简要信息
    * @request token - token
    * @response info - 用户信息
    *          { username, email, mobile, address, balance,
@@ -45,15 +54,45 @@ module.exports = app => {
   router.get('/user/info', controller.user.info);
 
   /**
+   * 获取用户个人信息
+   * @request token - token
+   */
+  router.get('/user/profile', controller.user.profile);
+
+  /**
+   * 更新个人信息
+   */
+  router.post('/user/profile/update', controller.user.updateProfile);
+
+  /**
+   * 检查账户重复
+   * @request contact - 
+   */
+  // router.post('/user/ckeckaccount', controller.user.checkAccount);
+
+  /**
    * 创建合约
    * @request title - 合约标题
    * @request description - 合约描述
-   * @request expiry - 有效时间
+   * @request start - 开始时间
+   * @request end - 结束时间
    * @request open - 是否公开
    * @request candidates - 候选人数组 [{ name, description }]
    * @request voters - 投票人数组 [{ name, contact, way }]
+   * @request publish - 是否保存
    */
-  router.post('/user/proposal', controller.contract.proposal);
+  router.post('/contract/create', controller.contraction.create);
+
+  /**
+   * 获取合约
+   * @request cid - 合约id
+   */
+  router.post('/contract/get', controller.contraction.get);
+
+  /**
+   * 更新合约
+   */
+  router.post('/contract/update', controller.contraction.update);
 
   /**
    * 获取合约信息
@@ -74,7 +113,7 @@ module.exports = app => {
    *            voters: [{ name, contact }]
    *          }
    */ 
-  router.get('/user/tally', controller.contract.tally);
+  router.get('/contract/detail', controller.contraction.detail);
 
   
 
@@ -90,7 +129,7 @@ module.exports = app => {
    *            condidates: [{ key, name, description }]
    *          }
    */
-  router.get('/voter/contract', controller.contract.get);
+  router.get('/voter/contract', controller.vote.contract);
 
   /**
    * 投票
@@ -98,7 +137,7 @@ module.exports = app => {
    * @request passcode - 投票人口令
    * @request candidate - 候选人key
    */
-  router.post('/voter/vote', controller.contract.vote);
+  router.post('/voter/vote', controller.vote.vote);
 
   /**
    * 得票统计
@@ -119,19 +158,18 @@ module.exports = app => {
    * @request address - 投票人地址
    * @request contract - 合约地址
    */
-  router.post('/vote/verify', controller.vote.verify);
+  router.post('/voter/verify', controller.vote.verify);
 
   
   /**
    * 获取验证码
    * @request contact - 联系地址 email/mobile
    */
-  router.post('/common/sendcode', controller.user.sendCode);
-
+  router.post('/common/sendcode', controller.common.sendCode);
+  
   /**
-   * 检查账户重复
-   * @request contact - 
+   * 发送选票链接
    */
-  router.post('/common/ckeckaccount', controller.user.checkAccount);
+  router.post('/common/sendticket', controller.common.sendTicket);
 
 };
