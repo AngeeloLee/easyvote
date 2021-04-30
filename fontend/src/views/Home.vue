@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <!-- <HelloWorld msg="Hello Vue 3.0 + Vite"/> -->
-    <h1>Index Page</h1>
+    <br>
+    <h1>Index</h1>
+    <p>It need to be filled in later</p>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '../components/HelloWorld.vue'
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
 }
 </script>
+
+<style scoped>
+.home {
+  text-align: center;
+}
+.home h1 {
+  font-size: 12em;
+}
+</style>

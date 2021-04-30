@@ -5,11 +5,12 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
-  router.get('/user/add', controller.user.add);
+  const logined = app.middleware.logined();
 
-  /************************ 临时接口 */
-  // router.post('/test/code/register', )
+  /**
+   * 主页
+   */
+  router.get('/', controller.home.index);
 
   /************************ 用户操作 */
   /**
@@ -32,7 +33,7 @@ module.exports = app => {
    * 用户登出
    * @request token - session标记
    */
-  router.post('/user/logout', controller.user.logout);
+  router.post('/user/logout', logined, controller.user.logout);
 
   /**
    * 用户注册
@@ -51,18 +52,18 @@ module.exports = app => {
    *            contracts: [{ address, title, description, total, done, state }]
    *          }
    */ 
-  router.get('/user/info', controller.user.info);
+  router.get('/user/info', logined, controller.user.info);
 
   /**
    * 获取用户个人信息
    * @request token - token
    */
-  router.get('/user/profile', controller.user.profile);
+  router.get('/user/profile', logined, controller.user.profile);
 
   /**
    * 更新个人信息
    */
-  router.post('/user/profile/update', controller.user.updateProfile);
+  router.post('/user/profile/update', logined, controller.user.updateProfile);
 
   /**
    * 检查账户重复
@@ -81,18 +82,18 @@ module.exports = app => {
    * @request voters - 投票人数组 [{ name, contact, way }]
    * @request publish - 是否保存
    */
-  router.post('/contract/create', controller.contraction.create);
+  router.post('/contract/create', logined, controller.contraction.create);
 
   /**
    * 获取合约
    * @request cid - 合约id
    */
-  router.post('/contract/get', controller.contraction.get);
+  router.post('/contract/get', logined, controller.contraction.get);
 
   /**
    * 更新合约
    */
-  router.post('/contract/update', controller.contraction.update);
+  router.post('/contract/update', logined, controller.contraction.update);
 
   /**
    * 获取合约信息
@@ -113,7 +114,7 @@ module.exports = app => {
    *            voters: [{ name, contact }]
    *          }
    */ 
-  router.get('/contract/detail', controller.contraction.detail);
+  router.get('/contract/detail', logined, controller.contraction.detail);
 
   
 
@@ -121,19 +122,18 @@ module.exports = app => {
 
   /**
    * 获取合约信息
-   * @request address - 投票人地址密文
+   * @request vid - 投票人id
    * @request passcode - 投票人口令
-   * @request contract - 合约地址
    * @response contract - 合约信息 
    *          { address, title, description, total, done, state,
    *            condidates: [{ key, name, description }]
    *          }
    */
-  router.get('/voter/contract', controller.vote.contract);
+  router.get('/voter/poll', controller.vote.contract);
 
   /**
    * 投票
-   * @request address - 投票人地址
+   * @request uvd - 投票人id
    * @request passcode - 投票人口令
    * @request candidate - 候选人key
    */
@@ -170,6 +170,6 @@ module.exports = app => {
   /**
    * 发送选票链接
    */
-  router.post('/common/sendticket', controller.common.sendTicket);
+  router.post('/common/sendticket', logined, controller.common.sendTicket);
 
 };

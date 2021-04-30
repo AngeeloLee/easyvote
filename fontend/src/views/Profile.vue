@@ -1,27 +1,38 @@
 <template>
     <div class="profile">
-        <h2>{{$t('profile.title')}}</h2>
-        <p class="label">{{$t('profile.nickname')}}</p>
-        <a-input :value="nickname" @change="e=>{nickname=e.target.value;updated.nickname=true}"/>
-        <p class="label">{{$t('profile.username')}}</p>
-        <a-input :value="username" @change="e=>{username=e.target.value;updated.username=true}"/>
-        <p class="label">{{$t('profile.email')}}</p>
-        <a-input :value="email" disabled/>
-        <p class="label">{{$t('profile.mobile')}}</p>
-        <a-input :value="mobile" disabled/>
-        <p class="label">{{$t('profile.password')}}</p>
-        <a-input-password :value="password" @change="e=>{password=e.target.value;updated.password=true}"/>
-        <p class="label">{{$t('profile.address')}}</p>
-        <a-input :value="address" @change="e=>{address=e.target.value;updated.address=true}"/>
-        <p class="label">{{$t('profile.privatekey')}}</p>
-        <a-textarea :value="privatekey" :rows="4" @change="e=>{privatekey=e.target.value;updated.privatekey=true}" allowClear/>
-        <p class="label">{{$t('profile.passcode')}}</p>
-        <a-input-password :value="passcode" @change="e=>{passcode=e.target.value;updated.passcode=true}"/>
-        <p class="label">{{$t('profile.balance')}}</p>
-        <a-input :value="balance" suffix="ETH" disabled/>
-        <hr/>
-        <a-button type="primary" @click="update" block>{{$t('profile.updateButton')}}</a-button>
-        <a-button type="danger" @click="destroy" block>{{$t('profile.destroyButton')}}</a-button>
+        <div class="left">
+            <a-button @click="back">{{$t('profile.backButton')}}</a-button>
+        </div>
+        <div class="center">
+            <div class="item">
+                <h2>{{$t('profile.title')}}</h2>
+                <p class="label">{{$t('profile.nickname')}}</p>
+                <a-input :value="nickname" @change="e=>{nickname=e.target.value;updated.nickname=true}"/>
+                <p class="label">{{$t('profile.username')}}</p>
+                <a-input :value="username" @change="e=>{username=e.target.value;updated.username=true}"/>
+                <p class="label">{{$t('profile.email')}}</p>
+                <a-input :value="email" disabled/>
+                <p class="label">{{$t('profile.mobile')}}</p>
+                <a-input :value="mobile" disabled/>
+                <p class="label">{{$t('profile.password')}}</p>
+                <a-input-password :value="password" @change="e=>{password=e.target.value;updated.password=true}"/>
+            </div>
+            <div class="item">
+                <p class="label">{{$t('profile.address')}}</p>
+                <a-input :value="address" @change="e=>{address=e.target.value;updated.address=true}"/>
+                <p class="label">{{$t('profile.privatekey')}}</p>
+                <a-textarea :value="privatekey" :rows="4" @change="e=>{privatekey=e.target.value;updated.privatekey=true}" allowClear/>
+                <p class="label">{{$t('profile.passcode')}}</p>
+                <a-input-password :value="passcode" @change="e=>{passcode=e.target.value;updated.passcode=true}"/>
+                <p class="label">{{$t('profile.balance')}}</p>
+                <a-input :value="balance" suffix="ETH" disabled/>
+            </div>
+        </div>
+        <div class="right">
+            <hr/>
+            <a-button type="primary" @click="update" block>{{$t('profile.updateButton')}}</a-button>
+            <a-button type="danger" @click="destroy" block>{{$t('profile.destroyButton')}}</a-button>
+        </div>
     </div>
 </template>
 
@@ -87,6 +98,10 @@ export default {
                 },
             });
         }
+        // 返回
+        const back = () => {
+            ctx.$router.go(-1)
+        }
         onBeforeMount(() => {
             if(!store.state.logined) {
                 ctx.$router.push({path: '/login'})
@@ -109,6 +124,7 @@ export default {
             ...toRefs(data),
             update,
             destroy,
+            back,
         }
     }
 
@@ -116,10 +132,55 @@ export default {
 </script>
 
 <style scoped>
-.profile {
-    margin: 3em auto;
-    max-width: 600px;
-    padding: 1em 1em 5em 1em;
+@media screen and (min-width: 800px) {
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 600px 1fr;
+        align-items: start;
+        gap: 2em;
+        margin: 3em 1em;
+    }
+    .profile .left {
+        justify-self: end;
+    }
+    .profile .center {
+        max-width: 600px;
+    }
+    .profile .center .item {
+        margin: 0 0 2em 0;
+        padding: 1em 1.5em 2em 1.5em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .profile .right hr {
+        display: none;
+    }
+    .profile .right {
+        max-width: 200px;
+    }
+    .profile .right .ant-btn {
+        margin: 0 0 1em 0;
+    }
+}
+@media screen and (max-width: 799px) {
+    .profile {
+        margin: 3em auto;
+        max-width: 600px;
+        padding: 1em 1.5em 3em 1.5em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .profile .left .ant-btn {
+        margin: 0 0 1em 0;
+    }
+    .profile hr {
+        margin: 2em 0 0 0;
+    }
+    .profile .right .ant-btn {
+        margin: 2em 0 0 0;
+    }
 }
 .profile h2 {
     text-align: center;
@@ -128,11 +189,5 @@ export default {
     margin: 0;
     padding: 1.5em 0 0.5em 0.5em;
     font-weight: 500;
-}
-.profile hr {
-    margin: 2em 0 0 0;
-}
-.ant-btn {
-    margin: 2em 0 0 0;
 }
 </style>

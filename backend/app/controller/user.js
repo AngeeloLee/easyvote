@@ -4,7 +4,7 @@ const Controller = require('egg').Controller;
 const { logined, validate } = require('../decorator');
 
 class UserController extends Controller {
-  // 构造器
+
   constructor(ctx) {
     super(ctx);
     // 密码登录校验规则
@@ -15,16 +15,13 @@ class UserController extends Controller {
         format: ctx.regexps.account,
       },
       password: {
-        type: 'string',
-        trim: true,
-        format: ctx.regexps.password, 
+        type: 'password',
       },
       remember: {
-        type: 'string',
-        trim: true,
-        format: ctx.regexps.bool,
+        type: 'boolean',
       },
     };
+
     // 验证码登录校验规则
     this.codeLoginRule = {
       contact: {
@@ -38,15 +35,44 @@ class UserController extends Controller {
         format: ctx.regexps.code,
       },
       remember: {
+        type: 'boolean',
+      },
+    };
+
+    // 注册规则
+    this.registerRule = {
+      contact: {
         type: 'string',
         trim: true,
-        format: ctx.regexps.bool,
+        format: ctx.regexps.contact,
+      },
+      password: {
+        type: 'password',
+      },
+      code: {
+        type: 'string',
+        trim: true,
+        format: ctx.regexps.code,
+      },
+      createAddress: {
+        type: 'boolean',
       },
     }
-  }
 
-  async add() {
-    this.ctx.body = this.ctx.service.user.add();
+    // 更新用户信息规则
+    this.updateProfileRule = {
+      username: {
+        type: 'string',
+        trim: true,
+        format: ctx.regexps.username,
+      },
+      password: {
+        type: 'password',
+      },
+      nickname: {
+        type: 'string',
+      },
+    }
   }
 
   // 使用密码登录
@@ -54,6 +80,7 @@ class UserController extends Controller {
   async pwdLogin() {
     console.log('login')
     const { ctx, app } = this;
+    ctx.validate(this.pwdLoginRule, ctx.request.body);
     const { account, password, remember } = ctx.request.body;
     const type = ctx.helper.accountType(ctx.regexps, account);
     const uid = await ctx.service.user.verify(account, type, password);
@@ -80,6 +107,7 @@ class UserController extends Controller {
   // @validate(this.codeLoginRule)
   async codeLogin() {
     const { ctx, app } = this;
+    ctx.validate(this.codeLoginRule, ctx.request.body);
     const { contact, code, remember } = ctx.request.body;
     const uid = await ctx.service.code.verify(contact, code);
     // 验证码错误
@@ -113,6 +141,7 @@ class UserController extends Controller {
   // 注册
   async register() {
     const { ctx, app } = this;
+    ctx.validate(this.registerRule, ctx.request.body);
     const { contact, password, code, createAddress } = ctx.request.body;
     // console.log('ctx:', ctx);
     console.log('contact: ', contact);
@@ -168,6 +197,7 @@ class UserController extends Controller {
   // 更新个人信息
   async updateProfile() {
     const { ctx, app } = this;
+    ctx.validate(this.updateProfileRule, ctx.request.body);
     const { username, password, nickname } = ctx.request.body;
     const token = ctx.session.token;
     const uid = await ctx.service.session.verify(token);

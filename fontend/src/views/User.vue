@@ -1,19 +1,17 @@
 <template>
     <div class="user">
-        <a-row class="info">
-            <a-col :span="19">
-                <a @click="editProfile"><h1>{{nickname}}</h1></a>
-                <p class="mate">
-                    <span>{{username}}</span>
-                    <span>{{$t('user.balance')}} {{balance}}TEH</span>
-                    <span>{{$t('user.account')}} {{address}}</span>
-                </p>
-            </a-col>
-            <a-col :span="5">
-                <a-button size="small" @click="editProfile" block>{{$t('user.editButton')}}</a-button>
-                <a-button size="small" @click="logout" block>{{$t('user.logoutButton')}}</a-button>
-            </a-col>
-        </a-row>
+        <div class="info">
+            <p><a @click="editProfile"><h1>{{nickname}}</h1></a></p>
+            <p class="mate">
+                <span>{{username}}</span>
+                <span>{{$t('user.balance')}}：{{balance}}TEH</span>
+                <span>{{$t('user.account')}}：{{address}}</span>
+            </p>
+            <span>
+                <a-button class="edit" size="small" @click="editProfile">{{$t('user.editButton')}}</a-button>
+                <a-button class="logout" size="small" @click="logout">{{$t('user.logoutButton')}}</a-button>
+            </span>
+        </div>
         <div class="polls">
             <p class="label">{{$t('user.polls')}}</p>
             <hr/>
@@ -91,6 +89,8 @@ export default {
         const gotoPoll = (cid, status) => {
             if (status === 'READY') {
                 ctx.$router.push({path:'/create/'+cid})
+            } else {
+                ctx.$router.push({path:'/poll/'+cid})
             }
         }
         const stopPoll = (address) => {}
@@ -132,13 +132,92 @@ export default {
 </script>
 
 <style scoped>
-.user {
-    max-width: 800px;
-    margin: 3em auto;
-    padding: 1em;
+@media screen and (min-width: 1000px) {
+    .user {
+        display: grid;
+        margin: 3em auto;
+        grid-template-columns: 1fr 700px 1fr;
+        align-items: start;
+        gap: 2em;
+    }
+    .info {
+        justify-self: end;
+        max-width: 275px;
+        padding: 1em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .info span {
+        display: block;
+    }
+    .info span .ant-btn {
+        width: 100%;
+        margin: 1em 0 0 0;
+    }
+    .polls {
+        padding: 1em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
 }
-.ant-row.info {
-    margin: 0;
+@media screen and (max-width: 999px) and (min-width: 400px) {
+    .user {
+        max-width: 700px;
+        margin: 3em auto;
+        padding: 1em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .info {
+        margin: 0 0 5em 0;
+    }
+    .info span {
+        float: right;
+    }
+    .info span .ant-btn.edit {
+        display: block;
+        margin-top: -3em;
+    }
+    .info span .ant-btn {
+        width: 120px
+    }
+    .polls {
+        margin: 3em 0;
+    }
+}
+@media screen and (max-width: 399px) {
+    .user {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 1em;
+        background-color: white;
+        border-radius: 0;
+        box-shadow: 0 0 0 var(--back-color);
+    }
+    .info {
+        margin: 0 0 2em 0;
+    }
+    .info span {
+        margin: 4.5em 0 0 0;
+        display: block;
+        text-align: center;
+    }
+    .info span .ant-btn {
+        display: inline;
+        width: 120px;
+    }
+    .info span .ant-btn.edit {
+        margin: 0 1em 0 0;
+    }
+    .info span .ant-btn.logout {
+        margin: 0 0 0 1em;
+    }
+    .polls {
+        margin: 3em 0;
+    }
 }
 .info h1 {
     margin: 0 0 0.2em 0;
@@ -163,9 +242,6 @@ export default {
 .info .ant-btn {
     margin: 0.5em 0 0 0;
 }
-.polls {
-    margin: 3em 0;
-}
 .polls .label {
     font-size: 1.1em;
     color: var(--words-color);
@@ -178,7 +254,7 @@ export default {
     border-radius: 0.2em;
 }
 .polls .card:hover {
-    box-shadow: 0 2px 5px #c7c7c7;
+    box-shadow: 0 2px 5px var(--theme-color);
 }
 .polls .card .ant-tag {
     float: right;

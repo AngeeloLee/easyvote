@@ -1,22 +1,24 @@
 <template>
     <div class="create">
-        <h2>
-            {{isUpdate?$t('create.updateTitle'):$t('create.createTitle')}}
-            <span>
-                <a-button type="primary" @click="create(true)">{{$t('create.publish')}}</a-button>
-                <a-button type="primary" @click="create(false)">{{isUpdate?$t('create.update'):$t('create.save')}}</a-button>
-            </span>
-        </h2>
-        <p class="label">{{$t('create.pollTitle')}}</p>
-        <a-input :value="title" :placeholder="$t('create.pollTitleHolder')" @change="e=>title=e.target.value"/>
-        <p class="label">{{$t('create.pollDesc')}}</p>
-        <a-textarea :rows="2" :value="description" :placeholder="$t('create.pollDescHolder')" @change="e=>description=e.target.value"/>
-        <p class="label">{{$t('create.pollExpiry')}}</p>
-        <a-range-picker :value="dateRange" format="YYYY-MM-DD  HH:mm:ss" @change="dates=>{dateRange[0]=dates[0];dateRange[1]=dates[1];}" showTime />
-        <p class="label">{{$t('create.pollOpen')}}</p>
-        <a-switch @change="checked=>open=checked" />
+        <a-button v-if="isUpdate" class="back" @click="back">{{$t('create.backButton')}}</a-button>
         <div class="item">
-            <br/><br/><br/>
+            <h2 class="title">
+                {{isUpdate?$t('create.updateTitle'):$t('create.createTitle')}}
+                <span>
+                    <a-button class="publish" type="primary" @click="create(true)">{{$t('create.publish')}}</a-button>
+                    <a-button class="save" type="primary" @click="create(false)">{{isUpdate?$t('create.update'):$t('create.save')}}</a-button>
+                </span>
+            </h2>
+            <p class="label">{{$t('create.pollTitle')}}</p>
+            <a-input :value="title" :placeholder="$t('create.pollTitleHolder')" @change="e=>title=e.target.value"/>
+            <p class="label">{{$t('create.pollDesc')}}</p>
+            <a-textarea :rows="2" :value="description" :placeholder="$t('create.pollDescHolder')" @change="e=>description=e.target.value"/>
+            <p class="label">{{$t('create.pollExpiry')}}</p>
+            <a-range-picker :value="dateRange" format="YYYY-MM-DD  HH:mm:ss" @change="dates=>{dateRange[0]=dates[0];dateRange[1]=dates[1];}" showTime />
+            <p class="label">{{$t('create.pollOpen')}}</p>
+            <a-switch @change="checked=>open=checked" />
+        </div>
+        <div class="item">
             <p class="label">
                 {{$t('create.candidate')}}
                 <span class="right"><a-button size="small" @click="showAddCandidate=true">{{$t('create.add')}}</a-button></span>
@@ -30,7 +32,6 @@
             </div>
         </div>
         <div v-if="!open" class="item">
-            <br/>
             <p class="label">
                 {{$t('create.voter')}}
                 <span class="right"><a-button size="small" @click="showAddVoter=true">{{$t('create.add')}}</a-button></span>
@@ -316,6 +317,10 @@ export default {
                 })
             }
         }
+        // 返回
+        const back = () => {
+            ctx.$router.go(-1)
+        }
         onMounted(() => {
             console.log('route:', route)
             console.log('cid:', route.params.cid)
@@ -357,23 +362,111 @@ export default {
             changeOneCandidateName,
             changeOneVoterMobile,
             changeOneVoterEmail,
+            back,
         }
     }
 }
 </script>
 
 <style scoped>
-.create {
-    margin: 3em auto;
-    max-width: 600px;
-    padding: 1em 1em 5em 1em;
+@media screen and (min-width: 1000px) {
+    .create {
+        margin: 3em auto;
+        max-width: 700px;
+    }
+    .create .item {
+        margin: 0 0 2em 0;
+        padding: 1.5em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .create h2.title {
+        margin: 0.5em 0 0 0.5em;
+        height: 2em;
+        text-align: center;
+    }
+    .create h2.title span .ant-btn.publish {
+        display: block;
+        float: right;
+        width: 100px;
+        margin-right: -150px;
+        margin-top: -2.5em;
+    }
+    .create h2.title span .ant-btn.save {
+        display: block;
+        float: right;
+        width: 100px;
+        margin-right: -150px;
+        margin-top: 1em;
+    }
+    .ant-btn.back {
+        float: left;
+        margin-left: calc(-100px - 2em);
+        width: 100px;
+    }
 }
-.create h2 {
-    margin: 0.5em 0 1.5em 0.5em;
+@media screen and (max-width: 999px) and (min-width: 401px) {
+    .create {
+        margin: 3em auto;
+        max-width: 700px;
+        padding: 1em 1.5em 2em 1.5em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .create .item {
+        margin: 0 0 2em 0;
+    }
+    .create h2.title {
+        display: inline;
+        margin: 0.5em 0 1.5em 0;
+    }
+    .create h2.title span .ant-btn {
+        float: right;
+        margin-left: 1em;
+    }
+    .ant-btn.back {
+        margin-bottom: 1em;
+    }
 }
-.create h2 span .ant-btn {
-    float: right;
-    margin-left: 1em;
+@media screen and (max-width: 400px) {
+    .create {
+        margin: 0 auto;
+        max-width: 700px;
+        padding: 1em 1.5em 2em 1.5em;
+        background-color: white;
+        border-radius: 0.2em;
+        box-shadow: 0 0 5px var(--back-color);
+    }
+    .create .item {
+        margin: 0 0 1.5em 0;
+    }
+    .create h2.title {
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+    .create h2.title span {
+        display: block;
+        text-align: center;
+        margin: 0.5em 0 0 0;
+    }
+    .create h2.title span .ant-btn.publish {
+        margin-top: 1em;
+        display: inline-block;
+        width: 100px;
+        margin: 0 1em 0 0;
+    }
+    .create h2.title span .ant-btn.save {
+        margin-top: 1em;
+        display: inline-block;
+        width: 100px;
+        margin: 0 0 0 1em;
+    }
+    .ant-btn.back {
+        margin-bottom: 1em;
+    }
 }
 .label {
     margin: 0;
@@ -394,7 +487,7 @@ span.ant-calendar-picker {
     border-radius: 0.2em;
 }
 .candidate:hover {
-    box-shadow: 0 2px 5px #c7c7c7;
+    box-shadow: 0 2px 5px var(--theme-color);
 }
 .candidate:hover span {
     display: inline-block;
@@ -427,7 +520,7 @@ span.ant-calendar-picker {
 }
 .voter:hover {
     background-color: var(--tiny-back-color);
-    box-shadow: 0 2px 5px #c7c7c7;
+    box-shadow: 0 2px 5px var(--theme-color);
     border-radius: 0.2em;
 }
 .voter:hover span.remove {

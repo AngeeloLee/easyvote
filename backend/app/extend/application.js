@@ -1,4 +1,5 @@
 module.exports = {
+    siteDomain: 'http://localhost:3000/#',
     // 新用户标记
     newAccountId: 'NEW_ACCOUNT_ID',
     // 响应参数
@@ -6,6 +7,8 @@ module.exports = {
         // 基础
         success: { succ: true, code: 100, msg: '请求成功', },
         failed: { succ: false, code: 200, msg: '请求失败', },
+        // 参数校验不通过
+        failValidate: (message) => { return { succ: false, code: 200, msg: '请求失败: '+message, }; },
         // 用户信息无效
         invalidToken: { succ: false, code: 201, msg: '用户未登录或登录失效', },
         invalidCode: { succ: false, code: 202, msg: '验证码错误', },

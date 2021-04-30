@@ -13,7 +13,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   },
   {
     path: '/login',
@@ -41,18 +41,18 @@ const routes = [
     component: () => import('../views/Create.vue')
   },
   {
-    path: '/poll',
-    name: 'Poll',
-    component: () => import('../views/Poll.vue')
-  },
-  {
-    path: '/poll/:paddr',
+    path: '/poll/:cid',
     name: 'PollQuery',
     component: () => import('../views/Poll.vue')
   },
   {
     path: '/tally',
     name: 'Tally',
+    component: () => import('../views/Tally.vue')
+  },
+  {
+    path: '/tally/:vid',
+    name: 'TallyQuery',
     component: () => import('../views/Tally.vue')
   },
   {
@@ -82,12 +82,12 @@ const router = createRouter({
   history: createWebHashHistory(),
 })
 
-// routes.beforeEach((to, from, next) => {
-//   if (to.matched.length !== 0) {
-//     next()
-//   } else {
-//     next({ path: '/404' })
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.matched.length !== 0) {
+    next()
+  } else {
+    next({ path: '/404' })
+  }
+})
 
 export default router

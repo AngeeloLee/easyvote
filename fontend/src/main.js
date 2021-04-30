@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import axios from './request'
+import axios from 'axios'
 import vueAxios from 'vue-axios'
 import { storeSymbol, provideStore } from './store'
 import i18n from './lang'

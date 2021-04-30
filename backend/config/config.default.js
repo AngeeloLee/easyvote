@@ -16,7 +16,20 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1613103180494_8364';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['guard'];
+
+  // // Logined中间件配置
+  // config.logined = {
+  //   //
+  // }
+
+  // guard中间件的配置
+  config.guard = {
+    // 登录状态无效
+    INVALID_TOKEN: 499,
+    // 参数校验失败
+    FAILED_VALIDATE: 422,
+  }
 
   // Session
   config.session = {

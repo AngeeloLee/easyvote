@@ -15,6 +15,15 @@ const transporter = nodemailer.createTransport({
 });
 
 class CommonService extends Service {
+  // 核验验证码
+  // async verifyCode(code) {
+  //   const { ctx, app } = this;
+  //   if (ctx.session.code === code) {
+      
+  //   }
+  // }
+
+  // 发送邮件
   async sendEmail(to, subject, html) {
     const mail = {
       from: '"EasyVote 易投" <easyvote@angeelo.fun>',
@@ -25,6 +34,7 @@ class CommonService extends Service {
     return await transporter.sendMail(mail);
   }
 
+  // 发送短信
   async sendSms() {}
 }
 module.exports = CommonService;

@@ -145,7 +145,7 @@ import md5 from 'js-md5';
 import { injectStore } from '../store'
 export default {
   name: "Login",
-  setup() {
+  setup(props) {
     const { ctx } = getCurrentInstance()
     const store = injectStore()
     const data = reactive({
@@ -197,7 +197,13 @@ export default {
       }
       ctx.axios.post(url, params).then(res => {
         store.logined(res.data.username)
-        ctx.$router.go(-1)
+        // 如果需要回滚
+        if (store.state.shouldGoback) {
+          store.setGoback(false)
+          ctx.$router.go(-1)
+        } else {
+          ctx.$router.replace({path:'/user'})
+        }
       })
     }
     // 注册
@@ -213,7 +219,14 @@ export default {
           message: ctx.$i18n.tc('login.succRegisterMsg'),
           description: ctx.$i18n.tc('login.succRegisterDesc'),
         })
-        data.tab = 'pwd-login'
+        store.logined(res.data.username)
+        // 如果需要回滚 
+        if (store.state.shouldGoback) {
+          store.setGoback(false)
+          ctx.$router.go(-1)
+        } else {
+          ctx.$router.replace({path:'/user'})
+        }
       })
     }
     // 获取验证码
@@ -244,11 +257,24 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.login {
-  margin: 0 auto;
-  margin-top: 3em;
-  max-width: 500px;
-  padding: 1em;
+@media screen and (min-width: 500px) {
+  .login {
+    margin: 0 auto;
+    margin-top: 3em;
+    max-width: 500px;
+    padding: 1em;
+    background-color: white;
+    border-radius: 0.2em;
+    box-shadow: 0 2px 5px var(--back-color);
+  }
+}
+@media screen and (max-width: 499px) {
+  .login {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 1em;
+    background-color: white;
+  }
 }
 .login h2 {
   text-align: center;

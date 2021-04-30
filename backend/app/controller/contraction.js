@@ -22,6 +22,11 @@ class ContractionController extends Controller {
       ctx.service.ethereum.createAccount(md5(voter.contact)).then(account => {
         // 更新投票人信息
         ctx.service.voter.update(vid, {...account, contract:doc._id});
+        // 发送投票链接
+        ctx.service.common.sendEmail(
+          voter.contact, ctx.helper.ticketMailSubject, 
+          ctx.helper.makeTicketMail(doc.title, app.siteDomain+'/vote/'+vid, vid, account.passcode)
+        );
       });
     }
     // 更新合约信息
@@ -33,13 +38,13 @@ class ContractionController extends Controller {
       open: doc.open,
       start: doc.start,
       end: doc.end,
-    }).then(contract => {
+    }).then(address => {
       // 更新合约信息
-      ctx.service.contraction.update(cid, {...contract});
+      ctx.service.contraction.update(cid, {address});
     });
   }
   
-  //@logined()
+  // 创建投票
   async create() {
     const { ctx, app } = this;
     const { title, description, start, end, open, candidates, voters, publish } = ctx.request.body;
@@ -73,6 +78,7 @@ class ContractionController extends Controller {
     return;
   }
 
+  // 更新投票信息
   async update() {
     const { ctx, app } = this;
     const { cid, title, description, start, end, open, candidates, voters, publish } = ctx.request.body;
@@ -102,6 +108,7 @@ class ContractionController extends Controller {
     return;
   }
 
+  // 发布投票
   async publish() {
     const { ctx, app } = this;
     const { cid } = ctx.request.body;
@@ -111,6 +118,8 @@ class ContractionController extends Controller {
     return;
   }
 
+  // 获取投票信息
+  // TODO 删减返回信息
   async get() {
     const { ctx, app } = this;
     const { cid } = ctx.request.body

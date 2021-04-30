@@ -16,6 +16,7 @@ class CommonController extends Controller {
             ctx.body = ctx.helper.makeResponse(app.responses.success);
             return;
         }
+        // ctx.session.code = code;
         // 使用邮箱发送
         if (type === 'email') {
             const info = await ctx.service.common.sendEmail(contact, ctx.helper.codeMailSubject, ctx.helper.makeCodeMail(code));

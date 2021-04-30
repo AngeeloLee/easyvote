@@ -1,9 +1,9 @@
 import { reactive, inject, readonly } from 'vue';
 
 const store = JSON.parse(sessionStorage.getItem('state')) || {
-    counter: 0,
     logined: localStorage.getItem('logined') === 'true',
     username: localStorage.getItem('username') || '',
+    shouldGoback: false,
 }
 
 window.onbeforeunload = (e) => {
@@ -27,9 +27,9 @@ export const provideStore = () => {
             localStorage.setItem('logined', '')
             localStorage.setItem('username', '')
         },
-        add: () => {
-            state.counter++
-        },
+        setGoback: (goback) => {
+            state.shouldGoback = goback
+        }
     }
 
     return { state: readonly(state), ...methods };

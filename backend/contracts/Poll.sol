@@ -107,7 +107,8 @@ contract Poll {
     constructor(
         bool open,
         string memory title,
-        uint start, uint end,
+        uint start,
+        uint end,
         bytes16[] memory candKeys,
         string[] memory candNames,
         address[] memory voters
@@ -122,7 +123,7 @@ contract Poll {
         _done = 0;
         _candidateKeys = new bytes16[](candKeys.length);
         for (uint i=0; i<candKeys.length; i++) {
-            _candidateKeys.push(candKeys[i]);
+            _candidateKeys[i] = candKeys[i];
             _candidates[candKeys[i]] = Candidate({
                 key: candKeys[i],
                 name: candNames[i],
